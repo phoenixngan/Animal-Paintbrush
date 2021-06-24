@@ -6,7 +6,7 @@ let img;
 // './assets/octopus.png', './assets/otter.png', './assets/owl.png', './assets/penguin.png',
 // './assets/pig.png', './assets/turtle.png', './assets/whale.png']
 function preload(){
-  for(var i = 0; i < 16; i++){
+  for(var i = 0; i < 15; i++){
       imgs[i] = loadImage('./assets/animal' + (i+1) + '.png');
   }
   // for (var i = 1; i < 4; i++) {
