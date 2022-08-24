@@ -1,12 +1,44 @@
-let colorlist = ['gold', 'yellow', 'turquoise', 'red']
+var imgs = [];
+var d = 0;
+let img;
+// ['./assets/bird.png', './assets/cat1.png', './assets/cat2.png', './assets/dog.png',
+// './assets/dolphin.png', './assets/elephant.png', './assets/giraffe.png', './assets/hedgehog.png',
+// './assets/octopus.png', './assets/otter.png', './assets/owl.png', './assets/penguin.png',
+// './assets/pig.png', './assets/turtle.png', './assets/whale.png']
+function preload(){
+  for(var i = 0; i < 15; i++){
+      imgs[i] = loadImage('./assets/animal' + (i+1) + '.png');
+  }
+  // for (var i = 1; i < 4; i++) {
+  //   imgs[i] = loadImage("./assets/cat"+i+".png");
+  // }
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-    background(255);
+  background(255);
 }
 
+
 function draw() {
-  noStroke();
-  fill(random(colorlist));
-  ellipse(mouseX, mouseY, 25, 25);
+  //noStroke();
+  if (mouseIsPressed) {
+    d++;
+    if(d == imgs.length){
+      d = 0;
+    }
+  }
+  console.log(d);
+  let rateNum = 5;
+  if(frameCount % rateNum == 0){
+    image(imgs[d], mouseX, mouseY, 50, 50);
+  }
+  // for (var i=0; i<5; i++) {
+  //   image(imgs[i], mouseX, mouseY);
+  // }
+
+  // let rateNum = 3;
+  // if(frameCount % rateNum == 0){
+  //   let img = loadImage(imgList[frameCount/rateNum % imgList.length]);
+  //   image(img, mouseX, mouseY, 50, 50);
 }
